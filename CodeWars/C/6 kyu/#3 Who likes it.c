@@ -16,29 +16,52 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
+
+size_t getDigits(size_t n)
+{
+    size_t digits = 0;
+    while (n)
+    {
+        digits += 1;
+        n /= 10;
+    }
+    return digits;
+}
 
 // result string must be a heap-allocated, nul-terminated string
 // to be freed by the tests suite
 
 char* likes(size_t n, const char* const names[n])
 {
+    int messageLength = 12; // " likes this" has length 11, +1 for '\0'
     char* message;
     switch (n)
     {
     case 0:
-        asprintf(&message, "no one likes this");
+        messageLength += 6; // "no one" has length 6
+        message = (char*) calloc(messageLength, 1);
+        sprintf(message, "no one likes this");
         break;
     case 1:
-        asprintf(&message, "%s likes this", names[0]);
+        messageLength += strlen(names[0]);
+        message = (char*) calloc(messageLength, 1);
+        sprintf(message, "%s likes this", names[0]);
         break;
     case 2:
-        asprintf(&message, "%s and %s like this", names[0], names[1]);
+        messageLength += strlen(names[0]) + 5 + strlen(names[1]); // " and " has length 5
+        message = (char*) calloc(messageLength, 1);
+        sprintf(message, "%s and %s like this", names[0], names[1]);
         break;
     case 3:
-        asprintf(&message, "%s, %s and %s like this", names[0], names[1], names[2]);
+        messageLength += strlen(names[0]) + 2 + strlen(names[1]) + 5 + strlen(names[2]); // ", " and " and " have length 2 and 5
+        message = (char*) calloc(messageLength, 1);
+        sprintf(message, "%s, %s and %s like this", names[0], names[1], names[2]);
         break;
     default:
-        asprintf(&message, "%s, %s and %d others like this", names[0], names[1], n - 2);
+        messageLength += strlen(names[0]) + 2 + strlen(names[1]) + 12 + getDigits(n - 2); // ", " and " and %d others " hav length 2 and 5 + getDigits(n-2)
+        message = (char*) calloc(messageLength, 1);
+        sprintf(message, "%s, %s and %d others like this", names[0], names[1], n - 2);
         break;
     }
     return message;
