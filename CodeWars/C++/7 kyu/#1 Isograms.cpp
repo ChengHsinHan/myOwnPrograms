@@ -14,10 +14,9 @@
 bool is_isogram(std::string str)
 {
     unsigned long long int seen = 0;
-    for (unsigned int index = 0; index < str.length(); ++index)
+    for (const auto letter: str)
     {
-        // '`' and '@' are right before 'a' and 'A' in ASCII table
-        short bitShift = (str[index] > 'a') ? (str[index] - '`') : (str[index] - '@');
+        short bitShift = (letter > 'a') ? (letter - 'a') : (letter - 'A');
         if (seen & (1ULL << bitShift))
             return false;
         seen |= (1ULL << bitShift);
