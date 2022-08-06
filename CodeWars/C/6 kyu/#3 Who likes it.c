@@ -34,35 +34,44 @@ size_t getDigits(size_t n)
 
 char* likes(size_t n, const char* const names[n])
 {
-    int messageLength = 12; // " likes this" has length 11, +1 for '\0'
+     // " likes this" has length 11, +1 for '\0'
+    int messageLength = 12;
     char* message;
     switch (n)
     {
     case 0:
-        messageLength += 6; // "no one" has length 6
-        message = (char*) calloc(messageLength, 1);
+        // "no one" has length 6
+        messageLength += 6;
+        message = (char*) malloc(messageLength * sizeof(char));
         sprintf(message, "no one likes this");
-        break;
+        return message;
     case 1:
         messageLength += strlen(names[0]);
-        message = (char*) calloc(messageLength, 1);
+        message = (char*) malloc(messageLength * sizeof(char));
         sprintf(message, "%s likes this", names[0]);
-        break;
+        return message;
     case 2:
-        messageLength += strlen(names[0]) + 5 + strlen(names[1]); // " and " has length 5
-        message = (char*) calloc(messageLength, 1);
+        // " and " has length 5, also, we cancel the 's' at the end of "likes"
+        // combining +5 and -1 we get +4 at the end
+        messageLength += (strlen(names[0]) + strlen(names[1]) + 4);
+        message = (char*) malloc(messageLength * sizeof(char));
         sprintf(message, "%s and %s like this", names[0], names[1]);
-        break;
+        return message;
     case 3:
-        messageLength += strlen(names[0]) + 2 + strlen(names[1]) + 5 + strlen(names[2]); // ", " and " and " have length 2 and 5
-        message = (char*) calloc(messageLength, 1);
+        // ", " and " and " have length 2 and 5, combined length would be 7
+        // cancel the 's' at the end of "likes", so +7 and -1 combined would +6
+        messageLength += (strlen(names[0]) + strlen(names[1]) + strlen(names[2]) + 6);
+        message = (char*) malloc(messageLength * sizeof(char));
         sprintf(message, "%s, %s and %s like this", names[0], names[1], names[2]);
-        break;
+        return message;
     default:
-        messageLength += strlen(names[0]) + 2 + strlen(names[1]) + 12 + getDigits(n - 2); // ", " and " and %d others " hav length 2 and 5 + getDigits(n-2)
-        message = (char*) calloc(messageLength, 1);
+        // ", " and " and %d others" have length 2 and 12 + getDigits(n - 2)
+        // combined length would be 14 + getDigits(n - 2)
+        // cancel the 's' at the end of "likes", combined length would be
+        // 13 + getDigits(n - 2)
+        messageLength += (strlen(names[0]) + strlen(names[1]) + 13 + getDigits(n - 2));
+        message = (char*) malloc(messageLength * sizeof(char));
         sprintf(message, "%s, %s and %d others like this", names[0], names[1], n - 2);
-        break;
+        return message;
     }
-    return message;
 }
