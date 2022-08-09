@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+# Formatting file (for padding leading zeros in files' name)
+leading_zeros.py
