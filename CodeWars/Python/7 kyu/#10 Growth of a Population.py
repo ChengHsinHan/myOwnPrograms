@@ -33,7 +33,8 @@
 # your function: if the parameter percent is 2 you have to convert it to 0.02.
 
 def nb_year(p0, percent, aug, p):
-    population = [p0]
-    while population[-1] < p:
-        population.append(int(population[-1] * (1 + percent / 100) + aug))
-    return len(population) - 1
+    year_pass = 0
+    while p0 < p:
+        p0 += int(p0 * percent / 100 + aug)
+        year_pass += 1
+    return year_pass
