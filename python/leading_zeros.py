@@ -3,6 +3,12 @@ import os
 
 parser = argparse.ArgumentParser()
 
+parser.add_argument("-f",
+                    "--folder",
+                    nargs = "?",
+                    default = os.path.dirname(os.path.realpath(__file__)),
+                    help = "This parser specifies which sub-directory you want to affect, relative and absolute path both work.")
+
 mode_group = parser.add_mutually_exclusive_group()
 mode_group.add_argument("-p",
                         "--pad",
@@ -15,10 +21,6 @@ mode_group.add_argument("-d",
                         help = "Only affect file that starts with '#0'. Deleter one zero after '#'")
 
 args = parser.parse_args()
-
-if not args.pad and not args.delete:
-    print("No specified mode. Exiting...")
-    exit(1)
 
 def pad_zero(current_directory, file, space_index):
     if not file.startswith('#') or file.index(' ') != space_index:
@@ -50,7 +52,11 @@ def loop_through_directory(directory):
             leading_zero(current_directory, file, space_index)
 
 def main():
-    directory = os.path.dirname(os.path.realpath(__file__))
+    if not args.pad and not args.delete:
+        print("No specified mode. Exiting...")
+        exit(1)
+
+    directory = args.folder
     loop_through_directory(directory)
 
 main()
