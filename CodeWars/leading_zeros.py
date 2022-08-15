@@ -5,7 +5,7 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument("-f",
                     "--folder",
-                    nargs = "?",
+                    nargs = 1,
                     default = os.path.dirname(os.path.realpath(__file__)),
                     help = "This parser specifies which sub-directory you want to affect, relative and absolute path both work.")
 
