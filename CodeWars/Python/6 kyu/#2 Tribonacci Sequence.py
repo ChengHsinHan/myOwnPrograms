@@ -31,7 +31,6 @@
 # mathematical curiosity too with his usual contagious passion :)]
 
 def tribonacci(signature, n):
-    #your code here
     result = signature[:n]
     for count in range(n - 3):
         result.append(sum(result[-3:]))

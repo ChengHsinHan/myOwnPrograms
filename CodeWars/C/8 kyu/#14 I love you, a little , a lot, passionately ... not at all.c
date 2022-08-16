@@ -14,7 +14,7 @@
 // Your goal in this kata is to determine which phrase the girls would say for a
 // flower of a given number of petals, where nb_petals > 0.
 
-#include <stddef.h> // NULL
+#include <stddef.h>
 
 const char* how_much_i_love_you(int nb_petals)
 {

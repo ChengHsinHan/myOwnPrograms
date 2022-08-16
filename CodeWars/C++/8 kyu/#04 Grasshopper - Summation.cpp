@@ -12,6 +12,5 @@
 
 int summation(int num)
 {
-    //Code here
     return (num * num + num) / 2;
 }
