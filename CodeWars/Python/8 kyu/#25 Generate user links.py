@@ -8,7 +8,7 @@
 # reference
 # use this as a reference encoding
 
-import urllib
+import urllib.parse
 
 def generate_link(user):
     return "http://www.codewars.com/users/" + urllib.parse.quote(user)
