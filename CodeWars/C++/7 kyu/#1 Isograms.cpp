@@ -13,13 +13,13 @@
 
 bool is_isogram(std::string str)
 {
-    unsigned long long int seen = 0;
+    unsigned long int seen = 0;
     for (const auto letter: str)
     {
         short bitShift = (letter > 'a') ? (letter - 'a') : (letter - 'A');
-        if (seen & (1ULL << bitShift))
+        if (seen & (1UL << bitShift))
             return false;
-        seen |= (1ULL << bitShift);
+        seen |= (1UL << bitShift);
     }
     return true;
 }
