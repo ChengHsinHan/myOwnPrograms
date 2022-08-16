@@ -14,7 +14,6 @@ mode_group.add_argument("-p",
                         "--pad",
                         action = "store_true",
                         help = "Only affect files that starts with '#'. Pad one zero after '#'")
-
 mode_group.add_argument("-d",
                         "--delete",
                         action = "store_true",
