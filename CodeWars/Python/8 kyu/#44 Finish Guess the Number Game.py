@@ -20,6 +20,4 @@ class Guesser:
             return True
         else:
             self.lives -= 1
-            if self.lives < 0:
-                raise Exception("Omae wa mo shindeiru")
             return False
