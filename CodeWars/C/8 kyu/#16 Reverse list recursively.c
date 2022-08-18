@@ -3,7 +3,7 @@
 
 int* revR(int* array, int n)
 {
-    if (n == 0)
+    if (n <= 1)
         return array;
 
     for (int index = 0; index < n - 1; ++index)
