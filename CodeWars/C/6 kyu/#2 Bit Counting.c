@@ -9,11 +9,5 @@
 
 size_t countBits(unsigned value)
 {
-    size_t count = 0;
-    while (value)
-    {
-        count += (value & 1);
-        value >>= 1;
-    }
-    return count;
+    return __builtin_popcount(value);
 }

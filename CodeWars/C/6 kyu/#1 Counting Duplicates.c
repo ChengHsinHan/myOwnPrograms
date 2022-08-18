@@ -19,20 +19,14 @@ size_t duplicate_count(const char* text)
 {
     unsigned long long int seen = 0;
     unsigned long long int duplicate = 0;
-    size_t count = 0;
 
     for (int iii = 0; text[iii]; ++iii)
     {
-        short bitShift = (text[iii] >= 'a') ? (text[iii] - '0' - ('a' - 'A')) : text[iii] - '0';
+        short bitShift = (text[iii] >= 'a') ? (text[iii] - '0' - ('a' - 'A')) : (text[iii] - '0');
         if (seen & (1ULL << bitShift))
             duplicate |= (1ULL << bitShift);
         seen |= (1ULL << bitShift);
     }
 
-    while (duplicate)
-    {
-        count += (duplicate & 1);
-        duplicate >>= 1;
-    }
-    return count;
+    return __builtin_popcountll(duplicate);
 }
