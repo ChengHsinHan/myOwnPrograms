@@ -12,8 +12,7 @@
 # char_freq("I like cats") // Returns {'a': 1, ' ': 2, 'c': 1, 'e': 1, 'I': 1,
 # 'k': 1, 'l': 1, 'i': 1, 's': 1, 't': 1}
 
+import collections
+
 def char_freq(message):
-    frequency = {}
-    for character in message:
-        frequency[character] = frequency.get(character, 0) + 1
-    return frequency
+    return collections.Counter(message)
