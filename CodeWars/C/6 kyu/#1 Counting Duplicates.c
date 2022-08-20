@@ -23,8 +23,7 @@ size_t duplicate_count(const char* text)
     for (int iii = 0; text[iii]; ++iii)
     {
         short bitShift = (text[iii] >= 'a') ? (text[iii] - '0' - ('a' - 'A')) : (text[iii] - '0');
-        if (seen & (1ULL << bitShift))
-            duplicate |= (1ULL << bitShift);
+        duplicate |= (seen & (1ULL << bitShift));
         seen |= (1ULL << bitShift);
     }
 
