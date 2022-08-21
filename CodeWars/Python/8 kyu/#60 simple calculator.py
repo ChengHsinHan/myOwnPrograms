@@ -15,7 +15,7 @@
 # Good luck!
 
 def calculator(x, y, op):
-    if type(x) is not int or type(y) is not int:
+    if not (isinstance(x, int) and isinstance(y, int)):
         return "unknown value"
 
     if op == '+':

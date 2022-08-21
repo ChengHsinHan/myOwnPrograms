@@ -22,4 +22,4 @@
 # approach by coding it from scratch.
 
 def my_first_kata(a, b):
-    return (a % b) + (b % a) if type(a) is int and type(b) is int else False
+    return (a % b) + (b % a) if isinstance(a, int) and isinstance(b, int) and a * b != 0 else False
