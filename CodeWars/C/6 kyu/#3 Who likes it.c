@@ -21,11 +21,11 @@
 size_t getDigits(size_t n)
 {
     size_t digits = 0;
-    while (n)
+    do
     {
-        digits += 1;
+        ++digits;
         n /= 10;
-    }
+    } while (n);
     return digits;
 }
 
