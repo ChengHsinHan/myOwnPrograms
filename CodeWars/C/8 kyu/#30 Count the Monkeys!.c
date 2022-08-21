@@ -20,9 +20,8 @@ size_t* monkey_count(size_t n, size_t* pResultCount)
     // in the array you are returning from the function
     // in the memory pointed to by the pResultCount
     // pointer.
-    *pResultCount = 0;
     size_t* result = (size_t*) calloc(n + 1, sizeof(size_t));
-    for (size_t count = 1; count <= n; ++count)
-        result[(*pResultCount)++] = count;
+    for (*pResultCount = 0; *pResultCount < n; ++(*pResultCount))
+        result[*pResultCount] = *pResultCount + 1;
     return result;
 }
