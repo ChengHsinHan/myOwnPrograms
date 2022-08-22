@@ -5,7 +5,6 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument("-f",
                     "--folder",
-                    nargs = 1,
                     default = os.path.dirname(os.path.realpath(__file__)),
                     help = "This parser specifies which sub-directory you want to affect, relative and absolute path both work.")
 
@@ -55,7 +54,7 @@ def main():
         print("No specified mode. Exiting...")
         exit(1)
 
-    directory = args.folder
+    directory = args.folder.rstrip('"')
     loop_through_directory(directory)
 
 main()
