@@ -21,29 +21,24 @@
 char* alphabet_position(const char* text)
 {
     // each letter would consume up to 3 chars (two digits and a space)
-    int positionStringLength = strlen(text) * 3 + 1;
-    char* positionString = (char*) malloc(positionStringLength * sizeof(char));
+    char* positionString = (char*) calloc(3 * strlen(text) + 1, sizeof(char));
 
-    int insertIndex = 0;
-    for (int textIndex = 0; text[textIndex]; ++textIndex)
+    // charPtr is used to add the desired alphabet order in positionString
+    char* charPtr = positionString;
+
+    for (unsigned int textIndex = 0; text[textIndex]; ++textIndex)
     {
-        if ((text[textIndex] >= 'A' && text[textIndex] <= 'Z') ||
-            (text[textIndex] >= 'a' && text[textIndex] <= 'z'))
+        if (((text[textIndex] >= 'A') && (text[textIndex] <= 'Z')) ||
+            ((text[textIndex] >= 'a') && (text[textIndex] <= 'z')))
         {
             // '`' and '@' are right before 'a' and 'A' in ASCII table
             short alphabetOrder = (text[textIndex] >= 'a') ? (text[textIndex] - '`') : (text[textIndex] - '@');
-            if (textIndex == 0)
-            {
-                sprintf(positionString + insertIndex, "%d", alphabetOrder);
-                insertIndex += (alphabetOrder >= 10) ? 2 : 1;
-            }
-            else
-            {
-                sprintf(positionString + insertIndex, " %d", alphabetOrder);
-                insertIndex += (alphabetOrder >= 10) ? 3 : 2;
-            }
+
+            // sprintf returns how many characters were put in charPtr
+            // so we can make use the return value to move charPtr forward
+            charPtr += (textIndex == 0) ? sprintf(charPtr, "%d", alphabetOrder) : sprintf(charPtr, " %d", alphabetOrder);
         }
     }
-    // if there is no English alphabet, insertIndex should remain intact
-    return (insertIndex == 0) ? strdup("") : positionString;
+    // if there is no English alphabet, charPtr should remain pointing at the same position of positionString
+    return (charPtr == positionString) ? strdup("") : positionString;
 }
