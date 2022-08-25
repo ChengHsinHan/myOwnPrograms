@@ -27,4 +27,5 @@
 def whoseMove(lastPlayer, win):
     if win:
         return lastPlayer
-    return "white" if lastPlayer == "black" else "black"
+    else:
+        return "white" if lastPlayer == "black" else "black"

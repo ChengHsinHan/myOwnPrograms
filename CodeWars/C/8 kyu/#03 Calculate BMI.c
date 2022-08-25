@@ -13,11 +13,12 @@
 
 const char* bmi(int weight, double height)
 {
-    if ((weight / (height * height)) <= 18.5)
+    double result = (double) weight / (height * height);
+    if (result <= 18.5)
         return "Underweight";
-    else if ((weight / (height * height)) <= 25.0)
+    else if ((result <= 25.0) && (result > 18.5))
         return "Normal";
-    else if ((weight / (height * height)) <= 30.0)
+    else if ((result <= 30.0) && (result > 25.0))
         return "Overweight";
     else
         return "Obese";

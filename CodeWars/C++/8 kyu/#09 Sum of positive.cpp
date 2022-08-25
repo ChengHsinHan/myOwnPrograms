@@ -10,6 +10,7 @@ int positive_sum(const std::vector<int> arr)
 {
     int sum = 0;
     for (const auto number : arr)
-        sum += (number > 0) ? number : 0;
+        if (number > 0)
+            sum += number;
     return sum;
 }

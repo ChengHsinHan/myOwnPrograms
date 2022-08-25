@@ -42,7 +42,7 @@
 double solution(const double* values, const char** units)
 {
     double objectInfo[] = { values[0], values[1], values[2] };
-    for (unsigned int index = 0; index < sizeof(objectInfo) / sizeof(objectInfo[0]); ++index)
+    for (unsigned int index = 0; index < 3; ++index)
     {
         if (strcmp(units[index], "cm") == 0)
             objectInfo[index] *= 1e-2;

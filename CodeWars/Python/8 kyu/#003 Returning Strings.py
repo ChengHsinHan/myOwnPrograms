@@ -5,4 +5,4 @@
 # properly]
 
 def greet(name):
-    return "Hello, " + name + " how are you doing today?"
+    return f"Hello, {name} how are you doing today?"

@@ -10,5 +10,5 @@
 
 int cockroach_speed(double s)
 {
-    return (int)(s * 250 / 9);
+    return (int)(s / 0.036);
 }
