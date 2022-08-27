@@ -20,6 +20,7 @@
 
 int* generate_range(int min, int max, int step, size_t* sz)
 {
+    *sz = 0;
     int* range = (int*) calloc((max - min) / step + 1, sizeof(int));
     for (int value = min; value <= max; value += step)
         range[(*sz)++] = value;
