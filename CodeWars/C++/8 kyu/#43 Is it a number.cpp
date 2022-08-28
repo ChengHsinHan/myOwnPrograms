@@ -18,5 +18,5 @@
 
 bool is_digit(std::string s)
 {
-    return std::regex_match(s, std::regex("\\s*(\\+|-)?\\d+[\\.\\d+]*\\s*"));
+    return std::regex_match(s, std::regex("^\\s*(\\+|-)?\\d+[\\.\\d+]*\\s*$"));
 }
