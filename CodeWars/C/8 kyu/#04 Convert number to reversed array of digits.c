@@ -16,5 +16,6 @@ void digitize(uint64_t n, uint8_t digits[], size_t* length_out)
     {
         digits[(*length_out)++] = n % 10;
         n /= 10;
-    } while (n);
+    }
+    while (n);
 }

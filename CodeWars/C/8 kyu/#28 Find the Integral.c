@@ -28,7 +28,8 @@ int getDigits(int number)
     {
         ++digits;
         number /= 10;
-    } while (number);
+    }
+    while (number);
     return digits;
 }
 
