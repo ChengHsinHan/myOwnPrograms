@@ -155,7 +155,6 @@ class Game(object):
 
     def play_one_round(self):
         answer = self.get_answer()
-        print(answer)
         index = 0
         while index < len(self.player_list):
             while True:
