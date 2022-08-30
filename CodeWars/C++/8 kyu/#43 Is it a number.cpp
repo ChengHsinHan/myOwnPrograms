@@ -14,9 +14,23 @@
 // isDigit("zero")
 
 #include <string>
-#include <regex>
+#include <sstream>
 
 bool is_digit(std::string s)
 {
-    return std::regex_match(s, std::regex("^\\s*(\\+|-)?\\d+[\\.\\d+]*\\s*$"));
+    // early termination for null string and blank spaces strings
+    if ((s == "") || (s.find_first_not_of(' ') == std::string::npos))
+        return false;
+
+    std::istringstream iss(s);
+    double value;
+    std::string remain;
+
+    // trim leading blank spaces and put the first numeral into value, if any
+    // then put the remaining parts into remain, with leading blank spaces trimmed
+    iss >> value >> remain;
+
+    // if there's only one numeral, then remain should catch nothing and iss shall
+    // reach the end of the file
+    return ((remain == "") && iss.eof());
 }
