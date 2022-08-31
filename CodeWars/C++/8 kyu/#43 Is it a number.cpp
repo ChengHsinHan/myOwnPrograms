@@ -18,8 +18,8 @@
 
 bool is_digit(std::string s)
 {
-    // early termination for null string and blank spaces strings
-    if ((s == "") || (s.find_first_not_of(' ') == std::string::npos))
+    // early termination for blank spaces strings
+    if (s.find_first_not_of(' ') == std::string::npos)
         return false;
 
     std::istringstream iss(s);
