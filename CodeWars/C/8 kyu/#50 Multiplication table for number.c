@@ -43,9 +43,9 @@ char* multi_table(int num)
     // so from that line on, there are at most 3 * digits of num, ending up having
     // at most 29 * digits of num in length
     char* table = (char*) calloc(81 + 29 * getDigits(num), sizeof(char));
-    int currentIndex = 0;
+    char* charPtr = table;
     for (int count = 1; count < 10; ++count)
-        currentIndex += sprintf(table + currentIndex, "%d * %d = %d\n", count, num, count * num);
-    sprintf(table + currentIndex, "%d * %d = %d", 10, num, 10 * num);
+        charPtr += sprintf(charPtr, "%d * %d = %d\n", count, num, count * num);
+    sprintf(charPtr, "%d * %d = %d", 10, num, 10 * num);
     return table;
 }
