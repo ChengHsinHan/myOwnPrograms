@@ -15,16 +15,7 @@
 # Good luck!
 
 def calculator(x, y, op):
-    if not (isinstance(x, int) and isinstance(y, int)):
-        return "unknown value"
-
-    if op == '+':
-        return x + y
-    elif op == '-':
-        return x - y
-    elif op == '*':
-        return x * y
-    elif op == '/':
-        return x / y if y != 0 else "unknown value"
-    else:
-        return "unknown value"
+    return {'+': x + y,
+            '-': x - y,
+            '*': x * y,
+            '/': x / y}.get(op, "unknown value") if isinstance(x, int) and isinstance(y, int) else "unknown value"

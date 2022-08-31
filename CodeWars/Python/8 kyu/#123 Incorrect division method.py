@@ -2,4 +2,4 @@
 # argument by its second, isn't always returning correct values. Fix it.
 
 def divide_numbers(x, y):
-    return x / y if y != 0 else None
+    return x / y

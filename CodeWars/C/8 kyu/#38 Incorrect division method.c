@@ -3,5 +3,5 @@
 
 float divide_nums(int x, int y)
 {
-    return (y != 0) ? (float)(x) / (float)(y) : 0.0;
+    return (float)(x) / (float)(y);
 }

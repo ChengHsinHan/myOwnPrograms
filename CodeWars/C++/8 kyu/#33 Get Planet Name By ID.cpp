@@ -26,7 +26,5 @@ std::string get_planet_name(int id)
             return "Uranus";
         case 8:
             return "Neptune";
-        default:
-            return "";
     }
 }

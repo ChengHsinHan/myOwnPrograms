@@ -18,6 +18,4 @@ std::string update_light(std::string current)
         return "red";
     else if (current == "red")
         return "green";
-    else
-        return "";
 }
