@@ -21,8 +21,8 @@
 
 def calculate_age(year_of_birth, current_year):
     if current_year > year_of_birth:
-        return f"You are {current_year - year_of_birth} year" + "s" * (current_year - year_of_birth != 1) + " old."
+        return f"You are {current_year - year_of_birth} year{'s' * ((current_year - year_of_birth) != 1)} old."
     elif current_year < year_of_birth:
-        return f"You will be born in {year_of_birth - current_year} year" + "s" * (year_of_birth - current_year != 1) + "."
+        return f"You will be born in {year_of_birth - current_year} year{'s' * ((year_of_birth - current_year) != 1)}."
     else:
         return "You were born this very year!"
