@@ -28,8 +28,8 @@ enum membership
     SENIOR = 2,
 };
 
-void open_or_senior (size_t n, const int members[n][2], enum membership memberships[n])
+void open_or_senior(size_t n, const int members[n][2], enum membership memberships[n])
 {
-	for (size_t index = 0; index < n; ++index)
+    for (size_t index = 0; index < n; ++index)
         memberships[index] = ((members[index][0] >= 55) && (members[index][1] > 7)) ? SENIOR : OPEN;
 }
