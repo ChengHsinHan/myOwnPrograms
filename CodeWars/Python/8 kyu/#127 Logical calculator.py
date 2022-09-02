@@ -22,9 +22,10 @@
 # A Boolean value (True or False).
 
 def logical_calc(array, op):
-    if op == "AND":
-        return all(array)
-    elif op == "OR":
-        return any(array)
-    else:
-        return array.count(True) % 2 != 0
+    match op:
+        case "AND":
+            return all(array)
+        case "OR":
+            return any(array)
+        case "XOR":
+            return array.count(True) % 2 != 0

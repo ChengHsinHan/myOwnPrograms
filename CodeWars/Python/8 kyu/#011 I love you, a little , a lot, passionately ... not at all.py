@@ -15,4 +15,16 @@
 # flower of a given number of petals, where nb_petals > 0.
 
 def how_much_i_love_you(nb_petals):
-    return ["I love you", "a little", "a lot", "passionately", "madly", "not at all"][nb_petals % 6 - 1]
+    match (nb_petals % 6):
+        case 0:
+            return "not at all"
+        case 1:
+            return "I love you"
+        case 2:
+            return "a little"
+        case 3:
+            return "a lot"
+        case 4:
+            return "passionately"
+        case 5:
+            return "madly"

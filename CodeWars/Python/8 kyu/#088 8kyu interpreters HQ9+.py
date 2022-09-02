@@ -24,13 +24,14 @@
 # (+ has no visible effects so we can safely ignore it.)
 
 def HQ9(code):
-    if code == 'H':
-        return 'Hello World!'
-    elif code == 'Q':
-        return code
-    elif code == '9':
-        return '\n'.join([f"{bottle} bottles of beer on the wall, {bottle} bottles of beer.\nTake one down and pass it around, {bottle - 1} bottle" + "s" * (bottle != 2) + " of beer on the wall." for bottle in range(99, 1, -1)]) + \
-               "\n1 bottle of beer on the wall, 1 bottle of beer.\nTake one down and pass it around, no more bottles of beer on the wall." + \
-               "\nNo more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall."
-    else:
-        return None
+    match code:
+        case 'H':
+            return 'Hello World!'
+        case 'Q':
+            return code
+        case '9':
+            return '\n'.join([f"{bottle} bottles of beer on the wall, {bottle} bottles of beer.\nTake one down and pass it around, {bottle - 1} bottle" + "s" * (bottle != 2) + " of beer on the wall." for bottle in range(99, 1, -1)]) + \
+                   "\n1 bottle of beer on the wall, 1 bottle of beer.\nTake one down and pass it around, no more bottles of beer on the wall." + \
+                   "\nNo more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall."
+        case _:
+            return None

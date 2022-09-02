@@ -20,8 +20,16 @@
 import math
 
 def calculate_tip(amount, rating):
-    return {"terrible" : math.ceil(amount * 0),
-            "poor"     : math.ceil(amount * 0.05),
-            "good"     : math.ceil(amount * 0.1),
-            "great"    : math.ceil(amount * 0.15),
-            "excellent": math.ceil(amount * 0.2)}.get(rating.lower(), "Rating not recognised")
+    match rating.lower():
+        case "terrible":
+            return math.ceil(amount * 0)
+        case "poor":
+            return math.ceil(amount * 0.05)
+        case "good":
+            return math.ceil(amount * 0.1)
+        case "great":
+            return math.ceil(amount * 0.15)
+        case "excellent":
+            return math.ceil(amount * 0.2)
+        case _:
+            return "Rating not recognised"
