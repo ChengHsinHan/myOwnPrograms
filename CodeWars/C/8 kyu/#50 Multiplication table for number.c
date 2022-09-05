@@ -44,8 +44,8 @@ char* multi_table(int num)
     // at most 29 * digits of num in length
     char* table = (char*) calloc(81 + 29 * getDigits(num), sizeof(char));
     char* charPtr = table;
-    for (int count = 1; count < 10; ++count)
-        charPtr += sprintf(charPtr, "%d * %d = %d\n", count, num, count * num);
-    sprintf(charPtr, "%d * %d = %d", 10, num, 10 * num);
+    for (int count = 1; count <= 10; ++count)
+        charPtr += (count != 10) ? sprintf(charPtr, "%d * %d = %d\n", count, num, count * num)
+                                 : sprintf(charPtr, "%d * %d = %d", count, num, count * num);
     return table;
 }
