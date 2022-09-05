@@ -32,5 +32,6 @@ public:
     }
 
 private:
-    int number, lives;
+    int number;
+    int lives;
 };

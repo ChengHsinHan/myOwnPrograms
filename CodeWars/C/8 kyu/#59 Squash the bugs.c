@@ -13,7 +13,7 @@ size_t find_longest(const char* words)
     const char* pchar = words;
 
     char c;
-    while ((c = *pchar++))
+    while ((c = *(pchar++)))
     {
         if (isspace(c))
         {

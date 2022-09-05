@@ -14,7 +14,7 @@ char* shortcut(char* str_out, const char* str_in)
     char* outPtr = str_out;
     for (const char* inPtr = str_in; *inPtr; ++inPtr)
         if ((*inPtr != 'a') && (*inPtr != 'e') && (*inPtr != 'i') && (*inPtr != 'o') && (*inPtr != 'u'))
-            *outPtr++ = *inPtr;
+            *(outPtr++) = *inPtr;
     *outPtr = '\0';
     return str_out;
 }

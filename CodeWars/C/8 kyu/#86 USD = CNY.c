@@ -13,6 +13,6 @@
 
 char* USD_to_CNY(long dollars, char* yuan)
 {
-    sprintf(yuan, "%.2Lf Chinese Yuan", (long double) dollars * 6.75);
+    sprintf(yuan, "%.2Lf Chinese Yuan", (long double)(dollars) * 6.75);
     return yuan;
 }

@@ -19,5 +19,5 @@ typedef struct
 
 point symmetric_point(point p, point q)
 {
-    return (point) {.x = 2 * q.x - p.x, .y = 2 * q.y - p.y};
+    return (point) { .x = 2 * q.x - p.x, .y = 2 * q.y - p.y };
 }

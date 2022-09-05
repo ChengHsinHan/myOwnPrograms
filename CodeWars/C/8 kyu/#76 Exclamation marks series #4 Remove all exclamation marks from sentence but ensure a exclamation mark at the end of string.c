@@ -14,16 +14,17 @@
 #include <stdlib.h>
 #include <string.h>
 
-char* remove_bang(const char* string)
+char* remove_bang_ptr(const char* string)
 {
     // allocate a new string on the heap; memory will be freed
+    // +2 for "!" and terminating '\0'
     char* result = (char*) calloc(strlen(string) + 2, sizeof(char));
     char* outputPositionPtr = result;
 
     for (const char* charPtr = string; *charPtr; ++charPtr)
         if (*charPtr != '!')
             *(outputPositionPtr++) = *charPtr;
-
     *outputPositionPtr = '!';
+
     return result;
 }
