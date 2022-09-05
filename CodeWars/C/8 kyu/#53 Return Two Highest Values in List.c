@@ -20,24 +20,22 @@ size_t two_highest(size_t length, const long long array[length], long long resul
     if (length == 0)
         return 0;
 
-    long long largest = LLONG_MIN;
+    // result[0] is always holding the largest number
+    result[0] = LLONG_MIN;
     long long secondLargest = LLONG_MIN;
     bool isMinInArray = false;
     for (size_t index = 0; index < length; ++index)
     {
         if (array[index] == LLONG_MIN)
             isMinInArray = true;
-        else if (array[index] > largest)
+        else if (array[index] > result[0])
         {
-            secondLargest = largest;
-            largest = array[index];
+            secondLargest = result[0];
+            result[0] = array[index];
         }
-        else if ((array[index] < largest) && (array[index] > secondLargest))
+        else if ((array[index] < result[0]) && (array[index] > secondLargest))
             secondLargest = array[index];
     }
-
-    // since length >= 1, result must have at least one element - largest
-    result[0] = largest;
 
     // if largest == LLONG_MIN, all the elements in array must be LLONG_MIN
     // and if secondLargest == LLONG_MIN **not due to** existence of LLONG_MIN in

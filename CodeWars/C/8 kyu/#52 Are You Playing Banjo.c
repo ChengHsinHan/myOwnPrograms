@@ -15,10 +15,16 @@
 
 char* are_you_playing_banjo(const char* name)
 {
-    char* answer = (char*) calloc(strlen(name) + 21, sizeof(char));
+    char* answer;
     if ((*name == 'r') || (*name == 'R'))
+    {
+        answer = (char*) calloc(strlen(name) + 13, sizeof(char));
         sprintf(answer, "%s plays banjo", name);
+    }
     else
+    {
+        answer = (char*) calloc(strlen(name) + 21, sizeof(char));
         sprintf(answer, "%s does not play banjo", name);
+    }
     return answer;
 }
