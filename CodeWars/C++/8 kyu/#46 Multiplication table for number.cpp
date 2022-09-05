@@ -25,7 +25,8 @@
 std::string multi_table(int number)
 {
     std::string table = "";
-    for (int count = 1; count < 10; ++count)
-        table += std::to_string(count) + " * " + std::to_string(number) + " = " + std::to_string(count * number) + "\n";
-    return (table + "10 * " + std::to_string(number) + " = " + std::to_string(10 * number));
+    for (int count = 1; count <= 10; ++count)
+        table += (count != 10) ? (std::to_string(count) + " * " + std::to_string(number) + " = " + std::to_string(count * number) + "\n")
+                               : (std::to_string(count) + " * " + std::to_string(number) + " = " + std::to_string(count * number));
+    return table;
 }

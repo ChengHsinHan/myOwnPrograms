@@ -12,9 +12,9 @@
 char* replace(const char* s)
 {
     char* replaceString = strdup(s);
-    const char vowels[] = "aeiouAEIOU";
     for (char* charPtr = replaceString; *charPtr; ++charPtr)
-        if (strchr(vowels, *charPtr))
+        if ((*charPtr == 'a') || (*charPtr == 'e') || (*charPtr == 'i') || (*charPtr == 'o') || (*charPtr == 'u') ||
+            (*charPtr == 'A') || (*charPtr == 'E') || (*charPtr == 'I') || (*charPtr == 'O') || (*charPtr == 'U'))
             *charPtr = '!';
     return replaceString;
 }

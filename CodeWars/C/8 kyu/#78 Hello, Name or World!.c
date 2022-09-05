@@ -28,12 +28,8 @@ char* hello(const char* name)
 
     sayPosition += sprintf(sayPosition, "Hello, ");
     for (unsigned int index = 0; index < strlen(name); ++index)
-    {
-        if (index == 0)
-            *(sayPosition++) = toupper(name[index]);
-        else
-            *(sayPosition++) = tolower(name[index]);
-    }
+        *(sayPosition++) = (index == 0) ? toupper(name[index]) : tolower(name[index]);
     *sayPosition = '!';
+
     return say;
 }

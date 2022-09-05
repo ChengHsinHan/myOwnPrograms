@@ -17,18 +17,14 @@ char* smash(const char* words[], size_t nb_words)
     // allocate a string on the heap, memory will be freed
     int sentenceLength = 0;
     for (size_t index = 0; index < nb_words; ++index)
-        // +1 for blank space after each word
+        // +1 for blank space or terminating '\0' after each word
         sentenceLength += (strlen(words[index]) + 1);
 
-    // although sentenceLength +1 for every word including the last one, we still
-    // have to allocate one extra space because the usage of sprintf would exceed
-    // sentenceLength for the last word
-    char* sentence = (char*) calloc(sentenceLength + 1, sizeof(char));
+    char* sentence = (char*) calloc(sentenceLength, sizeof(char));
     char* charPtr = sentence;
 
     for (size_t index = 0; index < nb_words; ++index)
-        charPtr += sprintf(charPtr, "%s ", words[index]);
-    sentence[sentenceLength - 1] = '\0';
+        charPtr += (index != nb_words - 1) ? sprintf(charPtr, "%s ", words[index]) : sprintf(charPtr, "%s", words[index]);
 
     return sentence;
 }
