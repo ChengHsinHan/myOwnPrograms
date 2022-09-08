@@ -21,7 +21,10 @@
 /* Return 1 if addr is a valid IP address, return 0 otherwise */
 int is_valid_ip(const char* addr)
 {
-    unsigned char first, second, third, fourth;
+    unsigned char first;
+    unsigned char second;
+    unsigned char third;
+    unsigned char fourth;
 
     // copy the four valid numbers from addr into first, second, third and fourth
     // since they are all unsigned chars, whose range is from 0 to 255
