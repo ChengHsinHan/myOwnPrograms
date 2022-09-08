@@ -14,6 +14,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include <stdio.h>
 
 // returned string has to be dynamically allocated and will be freed by the
@@ -28,8 +29,7 @@ char* alphabet_position(const char* text)
 
     for (unsigned int textIndex = 0; text[textIndex]; ++textIndex)
     {
-        if (((text[textIndex] >= 'A') && (text[textIndex] <= 'Z')) ||
-            ((text[textIndex] >= 'a') && (text[textIndex] <= 'z')))
+        if (isalpha(text[textIndex]))
         {
             // '`' and '@' are right before 'a' and 'A' in ASCII table
             short alphabetOrder = (text[textIndex] >= 'a') ? (text[textIndex] - '`') : (text[textIndex] - '@');

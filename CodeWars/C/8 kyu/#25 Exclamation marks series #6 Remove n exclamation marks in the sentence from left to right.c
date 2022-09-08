@@ -21,12 +21,13 @@
 char* remove(const char* str_in, int n)
 {
     char* str_out = (char*) calloc(strlen(str_in) + 1, sizeof(char));
-    for (const char* charPtr = str_in; *charPtr; ++charPtr)
+    char* outputPtr = str_out;
+    for (const char* inputPtr = str_in; *inputPtr; ++inputPtr)
     {
-        if ((*charPtr == '!') && (n > 0))
+        if ((*inputPtr == '!') && (n > 0))
             --n;
         else
-            strncat(str_out, charPtr, 1);
+            *(outputPtr++) = *inputPtr;
     }
     return str_out;
 }

@@ -5,11 +5,13 @@
 //
 // getNumberFromString(s)
 
+#include <ctype.h>
+
 int get_number_from_string(const char* src)
 {
     int number = 0;
     for (const char* charPtr = src; *charPtr; ++charPtr)
-        if ((*charPtr >= '0') && (*charPtr <= '9'))
+        if (isdigit(*charPtr))
             number = number * 10 + (*charPtr - '0');
     return number;
 }
