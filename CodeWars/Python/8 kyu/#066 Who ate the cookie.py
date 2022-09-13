@@ -13,4 +13,10 @@
 # Please leave feedback for this kata. Cheers!
 
 def cookie(x):
-    return "Who ate the last cookie? It was {name}!".format(name = {str: "Zach", float: "Monica", int: "Monica"}.get(type(x), "the dog"))
+    match type(x).__name__:
+        case 'str':
+            return "Who ate the last cookie? It was Zach!"
+        case 'float' | 'int':
+            return "Who ate the last cookie? It was Monica!"
+        case _:
+            return "Who ate the last cookie? It was the dog!"
