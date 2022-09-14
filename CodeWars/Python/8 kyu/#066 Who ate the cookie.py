@@ -13,7 +13,7 @@
 # Please leave feedback for this kata. Cheers!
 
 def cookie(x):
-    match type(x).__name__:
+    match x.__class__.__name__:
         case 'str':
             return "Who ate the last cookie? It was Zach!"
         case 'float' | 'int':
