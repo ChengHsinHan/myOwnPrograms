@@ -22,19 +22,12 @@ enum CardSuit
 
 enum CardSuit get_suit(const char* card)
 {
-    // suits will have their unicode:
-    // ♣ = 0xE2 99 A3, ♦ = 0xE2 99 A6, ♥ = 0xE2 99 A5, ♠ = 0xE2 99 A0
-    // Using two's complement to transform the least significant byte, one would get
-    // (♣) A3 = -93, (♦) A6 = -90, (♥) A5 = -91, (♠) A0 = -96
-    switch (card[strlen(card) - 1])
-    {
-    case -93:
+    if (strstr(card, "♣"))
         return CLUBS;
-    case -90:
+    else if (strstr(card, "♦"))
         return DIAMONDS;
-    case -91:
+    else if (strstr(card, "♥"))
         return HEARTS;
-    case -96:
+    else
         return SPADES;
-    }
 }

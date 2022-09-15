@@ -9,21 +9,20 @@
 // "paper", "paper" --> "Draw!"
 
 #include <string>
+#include <unordered_map>
 
 std::string rps(const std::string& p1, const std::string& p2)
 {
-    // ASCII values: 'r' = 82, 'p' = 80, 's' = 83
-    switch (p1[0] - p2[0])
-    {
-    case -1:
-    case -2:
-    case 3:
+    std::unordered_map<std::string, std::string> winOver = {
+        { "rock", "paper" },
+        { "paper", "scissors" },
+        { "scissors", "rock" }
+    };
+
+    if (p1 == winOver[p2])
         return "Player 1 won!";
-    case 1:
-    case 2:
-    case -3:
+    else if (p2 == winOver[p1])
         return "Player 2 won!";
-    default:
+    else
         return "Draw!";
-    }
 }
