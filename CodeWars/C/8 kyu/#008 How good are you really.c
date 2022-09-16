@@ -13,6 +13,7 @@
 
 int better_than_average(int class_points[], int class_size, int your_points)
 {
+    // Note: class_size is the length fo class_points.
     int total_score = 0;
     for (int index = 0; index < class_size; ++index)
         total_score += class_points[index];
