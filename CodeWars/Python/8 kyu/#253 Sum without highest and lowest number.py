@@ -15,4 +15,4 @@
 # or the given array is an empty list or a list with only 1 element, return 0.
 
 def sum_array(arr):
-    return sum(sorted(arr)[1:-1]) if isinstance(arr, list) and len(arr) > 1 else 0
+    return sum(sorted(arr)[1:-1]) if isinstance(arr, list) and len(arr) > 2 else 0
